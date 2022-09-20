@@ -131,36 +131,7 @@ spec:
         ports:
         - name: http
           containerPort: 2368
-        livenessProbe:
-          httpGet:
-            path: {{ .Values.ghostPath }}
-            port: http
-            httpHeaders:
-            - name: Host
-              value: {{ include "ghost.host" . | quote }}
-            {{- if eq .Values.ghostProtocol "https" }}
-            - name: X-Forwarded-Proto
-              value: https
-            {{- end }}
-          initialDelaySeconds: 120
-          timeoutSeconds: 5
-          failureThreshold: 6
-        readinessProbe:
-          httpGet:
-            path: {{ .Values.ghostPath }}
-            port: http
-            httpHeaders:
-            - name: Host
-              value: {{ include "ghost.host" . | quote }}
-            {{- if eq .Values.ghostProtocol "https" }}
-            - name: X-Forwarded-Proto
-              value: https
-            {{- end }}
-          initialDelaySeconds: 30
-          timeoutSeconds: 3
-          periodSeconds: 5
-        resources:
-{{ toYaml .Values.resources | indent 10 }}
+        
         volumeMounts:
         - name: ghost-data
           mountPath: /bitnami/ghost
