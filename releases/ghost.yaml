@@ -11,5 +11,5 @@ spec:
   chart:
     git: git@github.com:moredatta/aggrigation-flask.git
     ref: master
-    path: /flux
+    path: flux/charts
  
