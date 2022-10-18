@@ -1,16 +1,15 @@
 ---
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
+apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
-  name: cloud-discovery-helmrelease
+  name: aggr
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.chart-image: glob:3.1.1-debian-9-*
 spec:
-  interval: 1m
+  releaseName: ghost
   chart:
-    spec:
-      chart: chart
-      version: '0.1.1'
-      sourceRef:
-        kind: GitRepository
-        name: podinfo
-      interval: 2m
+    git: git@github.com:moredatta/aggrigation-flask.git
+    ref: master
+    path: flux/charts
  
