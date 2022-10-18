@@ -11,7 +11,7 @@ spec:
       chart: chart
       version: '0.1.1'
       sourceRef:
-        kind: HelmRepository
+        kind: GitRepository
         name: podinfo
         namespace: flux-system
       interval: 2m
