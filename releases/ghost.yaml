@@ -11,6 +11,6 @@ spec:
       version: '0.1.1'
       sourceRef:
         kind: GitRepository
-        name: prodinfo
+        name: podinfo
       interval: 2m
  
